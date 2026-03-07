@@ -1,11 +1,10 @@
-import { Brain, Palette, Globe, BarChart3, Search } from "lucide-react";
+import { Brain, Palette, Globe, BarChart3 } from "lucide-react";
 
 const features = [
   { icon: Brain, title: "AI Resume Parsing", desc: "Advanced AI extracts your skills, experience, and projects automatically from any resume format." },
-  { icon: Palette, title: "Beautiful Themes", desc: "Choose from professionally designed portfolio themes that make you stand out." },
+  { icon: Palette, title: "3 Beautiful Themes", desc: "Choose from 3 professionally designed portfolio themes that make you stand out." },
   { icon: Globe, title: "One-Click Hosting", desc: "Publish your portfolio instantly with a custom URL. No deployment hassle." },
   { icon: BarChart3, title: "Built-in Analytics", desc: "Track visitors, page views, and engagement with a powerful analytics dashboard." },
-  { icon: Search, title: "SEO Optimized", desc: "Every portfolio is optimized for search engines to help you get discovered." },
 ];
 
 const Features = () => {
@@ -32,9 +31,6 @@ const Features = () => {
               </div>
               <h3 className="font-display font-semibold text-lg mb-2 flex items-center gap-2">
                 {f.title}
-                {f.badge && (
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent font-medium">{f.badge}</span>
-                )}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{f.desc}</p>
             </div>

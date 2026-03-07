@@ -27,8 +27,8 @@ const Hero = () => {
 
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: "0.1s" }}>
-          Upload your resume and let AI craft a beautiful, SEO-optimized portfolio website. 
-          Choose from premium themes, customize everything, and publish instantly.
+          Upload your resume and let AI craft a beautiful portfolio website.
+          Choose from 3 premium themes, customize everything, and publish instantly.
         </p>
 
         {/* CTAs */}

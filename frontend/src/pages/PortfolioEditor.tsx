@@ -63,7 +63,6 @@ const sectionDefaults = [
   { id: "experience", title: "Experience", enabled: true },
   { id: "education", title: "Education", enabled: true },
   { id: "contact", title: "Contact", enabled: true },
-  { id: "seo", title: "SEO Settings", enabled: false },
 ];
 
 const PortfolioEditor = () => {
@@ -1041,11 +1040,6 @@ const PortfolioEditor = () => {
                           </Button>
                         </div>
                       </div>
-                    )}
-                    {sec.id === "seo" && (
-                      <p className="text-xs text-muted-foreground">
-                        SEO settings will be available in a future version.
-                      </p>
                     )}
                   </div>
                 )}

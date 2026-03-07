@@ -34,10 +34,7 @@ export function useScrollReveal(options?: {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         const el = entry.target as HTMLElement;
-                        // Stagger based on index
-                        const idx = Array.from(elements).indexOf(el);
-                        const delay = idx * staggerMs;
-                        el.style.transitionDelay = `${delay}ms`;
+                        el.style.transitionDelay = `${(Array.from(elements).indexOf(el) > -1 ? Array.from(elements).indexOf(el) : 0) * staggerMs}ms`;
                         el.classList.add("revealed");
                         observer.unobserve(el);
                     }
@@ -48,7 +45,18 @@ export function useScrollReveal(options?: {
 
         elements.forEach((el) => observer.observe(el));
 
-        return () => observer.disconnect();
+        // Use MutationObserver for dynamic content (like live preview typing)
+        const mutationObserver = new MutationObserver(() => {
+            const newElements = container.querySelectorAll("[data-reveal]:not(.revealed)");
+            newElements.forEach((el) => observer.observe(el));
+        });
+
+        mutationObserver.observe(container, { childList: true, subtree: true });
+
+        return () => {
+            observer.disconnect();
+            mutationObserver.disconnect();
+        };
     }, [options?.threshold, options?.rootMargin, options?.staggerMs]);
 
     return containerRef;

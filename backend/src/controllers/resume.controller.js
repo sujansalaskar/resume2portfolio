@@ -1,15 +1,16 @@
-const fs = require("fs");
 const pdfParse = require("pdf-parse");
 const { parseResumeWithAI } = require("../services/ai.service");
 
 exports.uploadResume = async (req, res) => {
   try {
 
-    console.log("Uploaded file:", req.file);
+    console.log("Uploaded file:", req.file ? req.file.originalname : "none");
 
-    const buffer = fs.readFileSync(req.file.path);
+    if (!req.file) {
+      return res.status(400).json({ message: "No resume file provided" });
+    }
 
-    const parsed = await pdfParse(buffer);
+    const parsed = await pdfParse(req.file.buffer);
 
     console.log("Extracted text length:", parsed.text.length);
 

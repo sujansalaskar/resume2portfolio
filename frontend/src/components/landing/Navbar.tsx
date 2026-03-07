@@ -19,7 +19,6 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
           <a href="#templates" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Templates</a>
-          <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
@@ -40,7 +39,6 @@ const Navbar = () => {
         <div className="md:hidden glass border-t border-border/30 p-4 space-y-3 animate-slide-up">
           <a href="#features" className="block text-sm text-muted-foreground hover:text-foreground py-2">Features</a>
           <a href="#templates" className="block text-sm text-muted-foreground hover:text-foreground py-2">Templates</a>
-          <a href="#pricing" className="block text-sm text-muted-foreground hover:text-foreground py-2">Pricing</a>
           <div className="pt-2 flex flex-col gap-2">
             <Link to="/login"><Button variant="ghost" className="w-full">Log in</Button></Link>
             <Link to="/signup"><Button variant="hero" className="w-full">Get Started</Button></Link>

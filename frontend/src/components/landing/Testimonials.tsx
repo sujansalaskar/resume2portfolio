@@ -16,7 +16,7 @@ const testimonials = [
   {
     name: "Aisha Patel",
     role: "Data Scientist",
-    text: "I tried building my portfolio from scratch for weeks. Resume2Portfolio did it better in minutes. The SEO optimization is a huge bonus.",
+    text: "I tried building my portfolio from scratch for weeks. Resume2Portfolio did it better in minutes. The 3 premium themes are a huge bonus.",
     avatar: "AP",
   },
 ];

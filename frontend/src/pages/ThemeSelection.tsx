@@ -15,17 +15,14 @@ const themes = [
   { id: 3, name: "Creative Flow", category: "creative", gradient: "from-success/20 to-success/5" },
 ];
 
-const filters = ["All", "Minimal", "Developer", "Creative"];
+
 
 const ThemeSelection = () => {
-  const [active, setActive] = useState("All");
   const [selected, setSelected] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [previewPortfolio, setPreviewPortfolio] = useState<PortfolioDocument | null>(null);
   const navigate = useNavigate();
-
-  const filtered = active === "All" ? themes : themes.filter(t => t.category === active.toLowerCase());
 
   useEffect(() => {
     const loadPortfolio = async () => {
@@ -85,28 +82,14 @@ const ThemeSelection = () => {
           )}
         </div>
 
-        <div className="flex gap-2 flex-wrap">
-          {filters.map(f => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                active === f ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {filtered.map((t) => (
+          {themes.map((t) => (
             <div
               key={t.id}
               onClick={() => setSelected(t.id)}
-              className={`group rounded-2xl overflow-hidden border cursor-pointer transition-all hover-lift ${
-                selected === t.id ? "border-primary glow-blue" : "border-border/50 hover:border-border"
-              }`}
+              className={`group rounded-2xl overflow-hidden border cursor-pointer transition-all hover-lift ${selected === t.id ? "border-primary glow-blue" : "border-border/50 hover:border-border"
+                }`}
             >
               <div className={`aspect-[4/3] bg-gradient-to-br ${t.gradient} relative flex items-center justify-center`}>
                 <div className="w-3/4 h-3/4 rounded-xl bg-background/20 backdrop-blur-sm border border-foreground/5" />
